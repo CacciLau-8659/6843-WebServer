@@ -31,17 +31,17 @@ def webServer(port=13331):
         header += b"Connection: close \r\n\r\n"
         #Note that a complete header must end with a blank line, creating the four-byte sequence "\r\n\r\n" Refer to https://w3.cs.jmu.edu/kirkpams/OpenCSF/Books/csf/html/TCPSockets.html
 
-        outputData = b""
+        outputdata = b""
         
         for i in f:
-            outputData += i
+            outputdata += i
         f.close()
                 
         
         #Send the content of the requested file to the client (don't forget the headers you created)!
         #Send everything as one send command, do not send one line/item at a time!
 
-        response = header + outputData
+        response = header + outputdata
         connectionSocket.send(response)
         connectionSocket.close() #closing the connection socket
 
