@@ -48,7 +48,8 @@ def webServer(port=13331):
             output_data += b"Content-Type: text/html; charset=UTF-8\r\n"
             output_data += b"Connection: close \r\n\r\n"
             output_data = b"<html><body><h1>404 Not Found</h1></body></html>\r\n"
-        
+            connectionSocket.send(output_data)
+            
             #Close client socket
             connectionSocket.close()
 
